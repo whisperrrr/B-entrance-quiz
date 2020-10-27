@@ -19,8 +19,19 @@ public class StudentController {
     }
 
     @GetMapping(value = "/students")
-    public ResponseEntity<StudentsResponse> getOrders() {
+    public ResponseEntity<StudentsResponse> getStudents() {
         try {
+            List<Student> students = studentService.findAllStudent();
+            return ResponseEntity.ok(new StudentsResponse(students));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping(value = "/dividedStudent")
+    public ResponseEntity<StudentsResponse> getDividedStudent() {
+        try {
+            // TODO 之后改逻辑
             List<Student> students = studentService.findAllStudent();
             return ResponseEntity.ok(new StudentsResponse(students));
         } catch (Exception e) {
