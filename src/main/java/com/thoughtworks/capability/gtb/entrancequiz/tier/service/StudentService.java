@@ -21,18 +21,21 @@ public class StudentService {
     }
 
     public List<List<Student>> getDividedStudent() {
-        List<List<Student>> listGroup = new ArrayList<>();
+        List<List<Student>> listGroup = initDividedStudent();
         List<Student> studentList = this.studentList.getStudentList();
         int listSize = studentList.size();
-        int toIndex = (int) Math.floor(listSize / groupNumber) + 1;
-        for (int i = 0; i < listSize; i += 2) {
-            if (i + 2 > listSize) {
-                toIndex = listSize - i;
-            }
-            List<Student> newList = studentList.subList(i, i + toIndex);
-            listGroup.add(newList);
+        for (int i = 0; i < listSize; i++) {
+            listGroup.get(i % groupNumber).add(studentList.get(i));
         }
         System.out.println(listGroup);
         return listGroup;
+    }
+
+    private List<List<Student>> initDividedStudent() {
+        List<List<Student>> initialDividedStudent = new ArrayList<>();
+        for (Integer i = 0; i < groupNumber; i++) {
+            initialDividedStudent.add(new ArrayList<>());
+        }
+        return initialDividedStudent;
     }
 }
