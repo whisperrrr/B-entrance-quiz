@@ -31,8 +31,8 @@ public class StudentController {
     @GetMapping(value = "/dividedStudent")
     public ResponseEntity<DividedStudentResponse> getDividedStudent() {
         try {
-            List<List<Student>> dividedstudents = studentService.getDividedStudent();
-            return ResponseEntity.ok(new DividedStudentResponse(dividedstudents));
+            List<List<Student>> dividedStudents = studentService.getDividedStudent();
+            return ResponseEntity.ok(new DividedStudentResponse(dividedStudents));
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }

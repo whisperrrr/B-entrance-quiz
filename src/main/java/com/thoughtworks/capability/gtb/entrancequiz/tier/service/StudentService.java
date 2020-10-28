@@ -5,6 +5,8 @@ import com.thoughtworks.capability.gtb.entrancequiz.entity.StudentsDataProvider;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -23,6 +25,7 @@ public class StudentService {
     public List<List<Student>> getDividedStudent() {
         List<List<Student>> listGroup = initDividedStudent();
         List<Student> studentList = this.studentList.getStudentList();
+        Collections.shuffle(studentList);
         int listSize = studentList.size();
         for (int i = 0; i < listSize; i++) {
             listGroup.get(i % groupNumber).add(studentList.get(i));
