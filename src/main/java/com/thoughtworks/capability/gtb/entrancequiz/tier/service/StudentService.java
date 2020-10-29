@@ -10,6 +10,8 @@ import java.util.List;
 @Service
 public class StudentService {
     private final StudentsDataProvider studentList;
+    //TODO GTB-工程实践: + StudentService.java:13 有提取Magic Number的意识
+    //TODO GTB-工程实践: - StudentService.java:14 常量名称一般是大写，组合词用"_"连接
     private final Integer groupNumber = 6;
 
     public StudentService() {
