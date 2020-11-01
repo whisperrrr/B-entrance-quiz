@@ -1,10 +1,20 @@
 package com.thoughtworks.capability.gtb.entrancequiz.entity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class StudentsDataProvider {
     private List<Student> studentList;
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
+
+
+    public List<Student> getStudentList() {
+        return studentList;
+    }
 
     public StudentsDataProvider() {
         this.studentList = Arrays.asList(
@@ -26,12 +36,13 @@ public class StudentsDataProvider {
         );
     }
 
-    public List<Student> getStudentList() {
-        return studentList;
-    }
-
     public void addNewStudent(Student newStudent) {
-        this.studentList.add(newStudent);
+        ArrayList<Student> studentArray = new ArrayList<>(this.studentList);
+        studentArray.add(newStudent);
+        setStudentList(studentArray);
     }
 
+    public Integer getListLength() {
+        return this.studentList.toArray().length;
+    }
 }

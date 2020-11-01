@@ -9,6 +9,10 @@ public class Student {
         this.name = name;
     }
 
+    public Student() {
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -3,9 +3,7 @@ package com.thoughtworks.capability.gtb.entrancequiz.tier.controller;
 import com.thoughtworks.capability.gtb.entrancequiz.entity.Student;
 import com.thoughtworks.capability.gtb.entrancequiz.tier.service.StudentService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,6 +14,11 @@ public class StudentController {
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
+    }
+
+    @PostMapping("/student")
+    public void addNewStudent(@RequestBody Student student) {
+        studentService.save(student);
     }
 
     @GetMapping(value = "/students")

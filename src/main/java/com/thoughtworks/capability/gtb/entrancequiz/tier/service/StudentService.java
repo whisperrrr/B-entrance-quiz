@@ -5,7 +5,6 @@ import com.thoughtworks.capability.gtb.entrancequiz.entity.StudentsDataProvider;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -40,5 +39,10 @@ public class StudentService {
             initialDividedStudent.add(new ArrayList<>());
         }
         return initialDividedStudent;
+    }
+
+    public void save(Student student) {
+        Student newStudent = new Student(studentList.getListLength() + 1, student.getName());
+        this.studentList.addNewStudent(newStudent);
     }
 }
