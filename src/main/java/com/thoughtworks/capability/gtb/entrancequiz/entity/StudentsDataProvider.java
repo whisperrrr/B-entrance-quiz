@@ -3,7 +3,7 @@ package com.thoughtworks.capability.gtb.entrancequiz.entity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+//TODO GTB-知识点: - StudentsDataProvider.java:5 了解下Repository的概念
 public class StudentsDataProvider {
     private List<Student> studentList;
 
